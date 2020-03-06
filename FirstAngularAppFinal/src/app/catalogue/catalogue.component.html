@@ -1,0 +1,78 @@
+<div class='panel panel-primary'>
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Recherche d'un produit:</div>
+            <div class='col-md-4'>
+                <input type='text' class="form-control" [(ngModel)]='rechercher' />
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-6'>
+                <h3>Filtre: {{ rechercher | uppercase  }} </h3>
+            </div>
+        </div>
+        <div class='table-responsive'>
+            <table class='table table-striped'
+                    *ngIf='products && products.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class='btn btn-primary'
+                                (click)='toggleImage()'>
+                                {{showImage ? 'Hide' : 'Show'}} Image
+                            </button>
+                        </th>
+                        <th>Produit</th>
+                        <th>Code</th>
+                        <th>Jour de dispo</th>
+                        <th>Prix</th>
+                        <th>Avis et Votes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let product of filteredProducts'>
+                        <td>
+                            <img *ngIf='showImage'
+                                [src]='product.imageUrl'
+                                [title]='product.productName'
+                                [style.width.px]='imageWidth'
+                                [style.margin.px]='imageMargin'>
+                        </td>
+                        <td>
+                            <a [routerLink]="['/catalogue', product.productId]">
+                                {{ product.productName }}
+                            </a>
+						</td>
+                        <td>{{ product.productCode | lowercase }}</td>
+                        <td>{{ product.releaseDate | date : 'dd/MM/yyyy'}}</td>
+                        <td>{{ product.price | currency:'EUR':true:'1.2-2'}}</td>
+                        <td>
+                            <!--<app-rating [rating]='product.starRating' [itemId]='product.productId' (ratingClick)='ratingComponentClick($event)'></app-rating>-->
+                            {{product.starRating}}
+                        </td>
+                        <td> Actions </td>
+                        <!--<td>
+                            <pm-star [rating]='product.starRating'
+                                (ratingClicked)='onRatingClicked($event)'>
+							              </pm-star>
+                        </td>-->
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--
+    <div *ngIf='errorMessage' class='alert alert-danger'>
+        Error: {{ errorMessage }}
+    </div>
+    
+    <div>
+        <div *ngFor='let user of users'>
+           -  {{user.lastName}}  {{user.userName}}
+        </div>
+    </div>
+-->    

@@ -1,0 +1,29 @@
+<p>product-detail works!</p>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>imageUrl</th>
+        <th>productId</th>
+        <th>productName</th>
+        <th>description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><img src="{{ selectedProduct.imageUrl }}" /></td>
+        <td>{{ selectedProduct.productId }}</td>
+        <td>{{ selectedProduct.productName }}</td>
+        <td>{{ selectedProduct.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="bd-example">
+  <a class="btn btn-primary" role="button" (click)="onBack()">Catalogue</a>
+</div>
+
+

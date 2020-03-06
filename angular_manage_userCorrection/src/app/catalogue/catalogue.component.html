@@ -1,0 +1,36 @@
+<!-- <p>catalogue works!</p>
+<ul>
+    <li *ngFor="let item of ListProducts">
+        {{item.productName}}
+    </li>
+</ul> -->
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>productId</th>
+                <th>productName</th>
+                <th>productCode</th>
+                <th>releaseDate</th>
+                <th>description</th>
+                <th>price</th>
+                <th>starRating</th>
+                <th>imageUrl</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of ListProducts">
+                <td>{{item.productId}}</td>
+                <td>{{item.productName}}</td>
+                <td>{{item.productCode}}</td>
+                <td>{{item.releaseDate}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.starRating}}</td>
+                <td><star-rating value={{item.starRating}} totalstars="5" (rate)="onRate($event)"></star-rating></td>
+                <td><img src={{item.imageUrl}} /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

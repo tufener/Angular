@@ -1,0 +1,19 @@
+<li class="list-group-item">
+  <label >Email</label>
+  <input type="text" class="form-control" [formControl]="userForm.controls.Email">
+  <label >Nom</label>
+  <input type="text" class="form-control" [formControl]="userForm.controls.Nom">
+  <label>Prénom</label>
+  <input type="text" class="form-control" [formControl]="userForm.controls.Prenom">
+  <label>Password</label>
+  <input type="password" class="form-control" [formControl]="userForm.controls.Password">
+  <label>Date de naissance</label>
+  <input type="date" class="form-control" [formControl]="userForm.controls.DatedeNaissance">
+  <label>Téléphone</label>
+  <input type="text" class="form-control" [formControl]="userForm.controls.Tel">
+  <label>Profil</label>
+  <select class="form-control" id="exampleFormControlSelect1" [formControl]="userForm.controls.Profil">
+      <option *ngFor="let item of Profils" >{{item}}</option>
+  </select>
+</li>
+<button class="btn btn-success" (click)="submitUser();" *ngIf="currentUser.IsCreate" > Enregistrer </button>
